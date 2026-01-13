@@ -289,11 +289,49 @@
         .hero-description {
             font-size: clamp(1rem, 2vw, 1.1rem);
             color: #94a3b8;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.5rem;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero-social-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
+        }
+
+        .hero-social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .hero-social-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .hero-social-link svg {
+            width: 18px;
+            height: 18px;
         }
 
         .cta-buttons {
@@ -301,7 +339,7 @@
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+            animation: fadeInUp 0.8s ease-out 0.5s backwards;
         }
 
         .btn {
@@ -772,6 +810,27 @@
                 MCA Graduate • QA Engineer specializing in bulletproof test automation frameworks. 
                 <br>Turning complex manual tests into elegant, scalable automated solutions.
             </p>
+            <div class="hero-social-links">
+                <a href="https://github.com/x9code" target="_blank" class="hero-social-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/deepak-6753z/" target="_blank" class="hero-social-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="mailto:contact.deepakrana.work@gmail.com" class="hero-social-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    Email
+                </a>
+            </div>
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">View Projects</a>
                 <a href="./resume.pdf" target="_blank" class="btn btn-outline">Download CV</a>
@@ -794,249 +853,40 @@
         </div>
     </section>
 
-<section class="section" id="skills">
-    <div class="container">
-        <h2 class="section-title">Technical Arsenal</h2>
-
-        <div class="skills-constellation">
-            <!-- Core Testing -->
-            <div class="skill-orb">
-                <h3>🎯 Core Testing</h3>
-                <div class="skill-tags">
-                    <span class="tag">Selenium WebDriver</span>
-                    <span class="tag">TestNG</span>
-                    <span class="tag">JUnit</span>
-                    <span class="tag">Postman</span>
-                    <span class="tag">Manual Testing</span>
+    <section class="section" id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Arsenal</h2>
+            <div class="skills-constellation">
+                <div class="skill-orb">
+                    <h3>🎯 Core Testing</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Selenium WebDriver</span>
+                        <span class="tag">TestNG</span>
+                        <span class="tag">JUnit</span>
+                        <span class="tag">Postman</span>
+                        <span class="tag">Manual Testing</span>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Engineering -->
-            <div class="skill-orb">
-                <h3>⚙️ Engineering</h3>
-                <div class="skill-tags">
-                    <span class="tag">Java</span>
-                    <span class="tag">Page Object Model</span>
-                    <span class="tag">Data-Driven Testing</span>
-                    <span class="tag">API Testing</span>
+                <div class="skill-orb">
+                    <h3>⚙️ Engineering</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Page Object Model</span>
+                        <span class="tag">Data-Driven Testing</span>
+                        <span class="tag">API Testing</span>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Data & Tools -->
-            <div class="skill-orb">
-                <h3>🗄️ Data & Tools</h3>
-                <div class="skill-tags">
-                    <span class="tag">SQL</span>
-                    <span class="tag">MySQL</span>
-                    <span class="tag">Git</span>
-                    <span class="tag">Jira</span>
-                    <span class="tag">IntelliJ</span>
+                <div class="skill-orb">
+                    <h3>🗄️ Data & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="tag">SQL</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">Jira</span>
+                        <span class="tag">IntelliJ</span>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Currently Mastering -->
-            <div class="skill-orb">
-                <h3>📚 Currently Mastering</h3>
-                <div class="skill-tags">
-                    <span class="tag">CI/CD (Jenkins)</span>
-                    <span class="tag">RestAssured</span>
-                    <span class="tag">JMeter</span>
-                    <span class="tag">Docker</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section" id="projects">
-    <div class="container">
-        <h2 class="section-title">Featured Work</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-number">01</div>
-                <h3>Hybrid Test Framework</h3>
-                <p>A production-ready automation framework engineered for OrangeHRM. Features include parallel execution, ExtentReports, and CI/CD integration.</p>
-                <div class="tech-stack">
-                    <span class="tech-badge">Java</span>
-                    <span class="tech-badge">Selenium</span>
-                    <span class="tech-badge">TestNG</span>
-                    <span class="tech-badge">Maven</span>
-                </div>
-                <a href="https://github.com/x9code/HybridAutomationFramework" target="_blank" class="project-link">
-                    View Code on GitHub →
-                </a>
-            </div>
-            <div class="project-card">
-                <div class="project-number">02</div>
-                <h3>SmartCity Platform</h3>
-                <p>Full-stack application connecting city services. Built comprehensive test suites for UI validation and API endpoints ensuring 99% uptime reliability.</p>
-                <div class="tech-stack">
-                    <span class="tech-badge">React</span>
-                    <span class="tech-badge">Spring Boot</span>
-                    <span class="tech-badge">REST API</span>
-                    <span class="tech-badge">MySQL</span>
-                </div>
-                <a href="https://github.com/x9code/Smart_City" target="_blank" class="project-link">
-                    View Code on GitHub →
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section" id="contact">
-    <div class="container">
-        <h2 class="section-title">Let's Connect</h2>
-        <div class="terminal">
-            <div class="terminal-header">
-                <div class="dot dot-red"></div>
-                <div class="dot dot-yellow"></div>
-                <div class="dot dot-green"></div>
-            </div>
-            <div class="terminal-content" id="terminal-box"></div>
-        </div>
-        <div class="contact-links">
-            <a href="mailto:contact.deepakrana.work@gmail.com" class="social-btn">
-                <span>📧</span> Send Email
-            </a>
-            <a href="https://www.linkedin.com/in/deepak-6753z/" target="_blank" class="social-btn">
-                <span>💼</span> LinkedIn
-            </a>
-            <a href="https://github.com/x9code" target="_blank" class="social-btn">
-                <span>💻</span> GitHub
-            </a>
-        </div>
-    </div>
-</section>
-
-<script>
-    // Create floating particles
-    function createParticles() {
-        const count = 20;
-        for(let i = 0; i < count; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 8 + 's';
-            particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
-            document.body.appendChild(particle);
-        }
-    }
-    createParticles();
-
-    // Typing Effect for Hero
-    const typingElement = document.querySelector('.typing-effect');
-    const phrases = ["Building Quality", "Preventing Bugs", "Automating Tests"];
-    let phraseIndex = 0; 
-    let charIndex = 0; 
-    let isDeleting = false;
-
-    function typeHero() {
-        const current = phrases[phraseIndex];
-        if(isDeleting) {
-            typingElement.textContent = current.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            typingElement.textContent = current.substring(0, charIndex + 1);
-            charIndex++;
-        }
-
-        if(!isDeleting && charIndex === current.length) {
-            isDeleting = true;
-            setTimeout(typeHero, 2000);
-        } else if(isDeleting && charIndex === 0) {
-            isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-            setTimeout(typeHero, 500);
-        } else {
-            setTimeout(typeHero, isDeleting ? 50 : 100);
-        }
-    }
-    typeHero();
-
-    // Terminal Typing
-    const terminalBox = document.getElementById('terminal-box');
-    const lines = [
-        { text: "deepak@qa:~$ grep 'skills' profile.txt", type: 'cmd' },
-        { text: "Automation, Java, Selenium, CI/CD, Problem Solving", type: 'out' },
-        { text: "deepak@qa:~$ ./contact_me.sh", type: 'cmd' },
-        { text: "Initiating connection... Email: contact.deepakrana.work@gmail.com", type: 'out' },
-        { text: "deepak@qa:~$ ", type: 'cmd' }
-    ];
-
-    let lineIdx = 0;
-    let charIdx = 0;
-    let started = false;
-
-    function typeTerminal() {
-        if (lineIdx >= lines.length) {
-            const cursor = document.createElement('span');
-            cursor.className = 'cursor-blink-terminal';
-            terminalBox.appendChild(cursor);
-            return;
-        }
-
-        const current = lines[lineIdx];
-        let div = terminalBox.children[lineIdx];
-        if (!div) {
-            div = document.createElement('div');
-            div.style.marginBottom = '0.5rem';
-            terminalBox.appendChild(div);
-        }
-
-        if (current.type === 'cmd') {
-            const promptHtml = '<span class="path">deepak@qa</span>:<span class="path">~</span>$ ';
-            const textToType = current.text.replace("deepak@qa:~$ ", "");
-            
-            if (textToType === "") {
-                div.innerHTML = promptHtml;
-                lineIdx++;
-                setTimeout(typeTerminal, 500);
-                return;
-            }
-
-            div.innerHTML = promptHtml + '<span class="cmd">' + textToType.substring(0, charIdx + 1) + '</span>';
-            charIdx++;
-
-            if (charIdx < textToType.length) {
-                setTimeout(typeTerminal, 50);
-            } else {
-                lineIdx++;
-                charIdx = 0;
-                setTimeout(typeTerminal, 300);
-            }
-        } else {
-            div.innerHTML = '<span class="output">' + current.text + '</span>';
-            lineIdx++;
-            setTimeout(typeTerminal, 150);
-        }
-    }
-
-    const obs = new IntersectionObserver((entries) => {
-        if(entries[0].isIntersecting && !started) {
-            started = true;
-            typeTerminal();
-        }
-    });
-    obs.observe(document.querySelector('.terminal'));
-
-    // Fade-in animations
-    const fadeObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.skill-orb, .project-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-        fadeObs.observe(el);
-    });
-</script>
-</body>
-</html>
-</parameter>
+                <div class="skill-orb">
+                    <h3>📚 Currently Mastering</h3>
+                    <div class="skill-tags">
+                        <span class="tag">

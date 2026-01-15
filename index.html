@@ -392,31 +392,92 @@
             border-radius: 2px;
         }
 
-        /* Glass Philosophy Card */
-        .philosophy {
+        /* --- Professional Strategy/Philosophy Section --- */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .phil-card {
             background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-left: 4px solid var(--warning);
-            padding: 2.5rem;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
-            font-family: 'Courier New', monospace;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            overflow-x: auto;
-            transition: all 0.3s ease;
+            padding: 2.5rem 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
         }
 
-        .philosophy:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-            border-color: rgba(255, 255, 255, 0.2);
+        .phil-card:hover {
+            transform: translateY(-8px);
+            background: rgba(30, 41, 59, 0.7);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
-        .code-keyword { color: var(--secondary); } 
-        .code-val { color: var(--success); }
-        .code-comment { color: #64748b; font-style: italic; }
-        .code-line { margin-bottom: 0.3rem; }
+        /* Gradient accent line at top of cards */
+        .phil-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .phil-card:hover::before {
+            opacity: 1;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+        }
+
+        .phil-icon {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.05);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+
+        .phil-card h3 {
+            color: #fff;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .phil-card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .phil-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        .highlight-clean {
+            color: var(--primary);
+            font-weight: 600;
+        }
 
         /* Glass Skill Cards */
         .skills-constellation {
@@ -740,7 +801,7 @@
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .glitch { font-size: 2.5rem; }
-            .projects-grid, .skills-constellation { grid-template-columns: 1fr; }
+            .projects-grid, .skills-constellation, .philosophy-grid { grid-template-columns: 1fr; }
             .section { padding: 4rem 1.5rem; }
             .project-number { font-size: 3rem; }
         }
@@ -780,276 +841,280 @@
     </section>
 
     <section class="section">
-       <div class="philosophy">
-    <div class="code-line">
-        <span class="code-comment">// A disciplined approach to quality engineering</span>
-    </div>
-    <div class="code-line">
-        <span class="code-keyword">const</span> qualityEngineering = {
-    </div>
-    <div class="code-line" style="margin-left: 2rem;">
-        riskBasedTesting: <span class="code-val">true</span>,
-    </div>
-    <div class="code-line" style="margin-left: 2rem;">
-        automationFirst: <span class="code-val">"Where ROI Justifies"</span>,
-    </div>
-    <div class="code-line" style="margin-left: 2rem;">
-        shiftLeftApproach: <span class="code-val">true</span>,
-    </div>
-    <div class="code-line" style="margin-left: 2rem;">
-        defectPrevention: <span class="code-val">"Over Detection"</span>,
-    </div>
-    <div class="code-line" style="margin-left: 2rem;">
-        releaseDecisionConfidence: <span class="code-val">"Data-Driven"</span>
-    </div>
-    <div class="code-line">};</div>
-</div>
+        <div class="container">
+            <h2 class="section-title">Automation Strategy</h2>
+            
+            <p class="phil-intro">
+                Effective automation isn't just about writing scripts; it's about <span class="highlight-clean">building trust</span>. 
+                My approach treats test code with the same rigor as production code—prioritizing modularity, stability, and speed to enable continuous delivery.
+            </p>
 
+            <div class="philosophy-grid">
+                <div class="phil-card">
+                    <div class="phil-icon">🛡️</div>
+                    <h3>Deterministic Execution</h3>
+                    <p>
+                        Flakiness is the enemy of QA. I design atomic tests with robust synchronization strategies (Fluent/Explicit waits) rather than hard sleeps. If a test fails in my framework, it implies a genuine product defect, not a script error.
+                    </p>
+                </div>
+
+                <div class="phil-card">
+                    <div class="phil-icon">🏗️</div>
+                    <h3>Scalable Architecture</h3>
+                    <p>
+                        I strictly adhere to the <strong>Page Object Model</strong> and SOLID principles. By decoupling test logic from UI locators and utilizing Singleton drivers, I ensure that when the UI changes, maintenance takes minutes, not hours.
+                    </p>
+                </div>
+
+                <div class="phil-card">
+                    <div class="phil-icon">⚡</div>
+                    <h3>Rapid Feedback Loops</h3>
+                    <p>
+                        Automation is useless if it takes too long. I leverage <strong>TestNG Parallel Execution</strong> and Dockerized grids to slash runtime. This provides developers with immediate feedback in the CI pipeline, preventing bugs from merging.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
-<section class="section" id="skills">
-    <div class="container">
-        <h2 class="section-title">Technical Arsenal</h2>
+    <section class="section" id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Arsenal</h2>
 
-        <div class="skills-constellation">
-            <!-- Core Testing -->
-            <div class="skill-orb">
-                <h3>🎯 Core Testing</h3>
-                <div class="skill-tags">
-                    <span class="tag">Selenium WebDriver</span>
-                    <span class="tag">TestNG</span>
-                    <span class="tag">JUnit</span>
-                    <span class="tag">Postman</span>
-                    <span class="tag">Manual Testing</span>
+            <div class="skills-constellation">
+                <div class="skill-orb">
+                    <h3>🎯 Core Testing</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Selenium WebDriver</span>
+                        <span class="tag">TestNG</span>
+                        <span class="tag">JUnit</span>
+                        <span class="tag">Postman</span>
+                        <span class="tag">Manual Testing</span>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Engineering -->
-            <div class="skill-orb">
-                <h3>⚙️ Engineering</h3>
-                <div class="skill-tags">
-                    <span class="tag">Java</span>
-                    <span class="tag">Page Object Model</span>
-                    <span class="tag">Data-Driven Testing</span>
-                    <span class="tag">API Testing</span>
+                <div class="skill-orb">
+                    <h3>⚙️ Engineering</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Page Object Model</span>
+                        <span class="tag">Data-Driven Testing</span>
+                        <span class="tag">API Testing</span>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Data & Tools -->
-            <div class="skill-orb">
-                <h3>🗄️ Data & Tools</h3>
-                <div class="skill-tags">
-                    <span class="tag">SQL</span>
-                    <span class="tag">MySQL</span>
-                    <span class="tag">Git</span>
-                    <span class="tag">Jira</span>
-                    <span class="tag">IntelliJ</span>
+                <div class="skill-orb">
+                    <h3>🗄️ Data & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="tag">SQL</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">Jira</span>
+                        <span class="tag">IntelliJ</span>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Currently Mastering -->
-            <div class="skill-orb">
-                <h3>📚 Currently Mastering</h3>
-                <div class="skill-tags">
-                    <span class="tag">CI/CD (Jenkins)</span>
-                    <span class="tag">RestAssured</span>
-                    <span class="tag">JMeter</span>
-                    <span class="tag">Docker</span>
+                <div class="skill-orb">
+                    <h3>📚 Currently Mastering</h3>
+                    <div class="skill-tags">
+                        <span class="tag">CI/CD (Jenkins)</span>
+                        <span class="tag">RestAssured</span>
+                        <span class="tag">JMeter</span>
+                        <span class="tag">Docker</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="section" id="projects">
-    <div class="container">
-        <h2 class="section-title">Featured Work</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-number">01</div>
-                <h3>Hybrid Test Framework</h3>
-                <p>A production-ready automation framework engineered for OrangeHRM. Features include parallel execution, ExtentReports, and CI/CD integration.</p>
-                <div class="tech-stack">
-                    <span class="tech-badge">Java</span>
-                    <span class="tech-badge">Selenium</span>
-                    <span class="tech-badge">TestNG</span>
-                    <span class="tech-badge">Maven</span>
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Work</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-number">01</div>
+                    <h3>Hybrid Test Framework</h3>
+                    <p>A production-ready automation framework engineered for OrangeHRM. Features include parallel execution, ExtentReports, and CI/CD integration.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Java</span>
+                        <span class="tech-badge">Selenium</span>
+                        <span class="tech-badge">TestNG</span>
+                        <span class="tech-badge">Maven</span>
+                    </div>
+                    <a href="https://github.com/x9code/HybridAutomationFramework" target="_blank" class="project-link">
+                        View Code on GitHub →
+                    </a>
                 </div>
-                <a href="https://github.com/x9code/HybridAutomationFramework" target="_blank" class="project-link">
-                    View Code on GitHub →
+                <div class="project-card">
+                    <div class="project-number">02</div>
+                    <h3>SmartCity Platform</h3>
+                    <p>Full-stack application connecting city services. Built comprehensive test suites for UI validation and API endpoints ensuring 99% uptime reliability.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">Spring Boot</span>
+                        <span class="tech-badge">REST API</span>
+                        <span class="tech-badge">MySQL</span>
+                    </div>
+                    <a href="https://github.com/x9code/Smart_City" target="_blank" class="project-link">
+                        View Code on GitHub →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                </div>
+                <div class="terminal-content" id="terminal-box"></div>
+            </div>
+            <div class="contact-links">
+                <a href="mailto:contact.deepakrana.work@gmail.com" class="social-btn">
+                    <span>📧</span> Send Email
+                </a>
+                <a href="https://www.linkedin.com/in/deepak-6753z/" target="_blank" class="social-btn">
+                    <span>💼</span> LinkedIn
+                </a>
+                <a href="https://github.com/x9code" target="_blank" class="social-btn">
+                    <span>💻</span> GitHub
                 </a>
             </div>
-            <div class="project-card">
-                <div class="project-number">02</div>
-                <h3>SmartCity Platform</h3>
-                <p>Full-stack application connecting city services. Built comprehensive test suites for UI validation and API endpoints ensuring 99% uptime reliability.</p>
-                <div class="tech-stack">
-                    <span class="tech-badge">React</span>
-                    <span class="tech-badge">Spring Boot</span>
-                    <span class="tech-badge">REST API</span>
-                    <span class="tech-badge">MySQL</span>
-                </div>
-                <a href="https://github.com/x9code/Smart_City" target="_blank" class="project-link">
-                    View Code on GitHub →
-                </a>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="section" id="contact">
-    <div class="container">
-        <h2 class="section-title">Let's Connect</h2>
-        <div class="terminal">
-            <div class="terminal-header">
-                <div class="dot dot-red"></div>
-                <div class="dot dot-yellow"></div>
-                <div class="dot dot-green"></div>
-            </div>
-            <div class="terminal-content" id="terminal-box"></div>
-        </div>
-        <div class="contact-links">
-            <a href="mailto:contact.deepakrana.work@gmail.com" class="social-btn">
-                <span>📧</span> Send Email
-            </a>
-            <a href="https://www.linkedin.com/in/deepak-6753z/" target="_blank" class="social-btn">
-                <span>💼</span> LinkedIn
-            </a>
-            <a href="https://github.com/x9code" target="_blank" class="social-btn">
-                <span>💻</span> GitHub
-            </a>
-        </div>
-    </div>
-</section>
-
-<script>
-    // Create floating particles
-    function createParticles() {
-        const count = 20;
-        for(let i = 0; i < count; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 8 + 's';
-            particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
-            document.body.appendChild(particle);
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const count = 20;
+            for(let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                document.body.appendChild(particle);
+            }
         }
-    }
-    createParticles();
+        createParticles();
 
-    // Typing Effect for Hero
-    const typingElement = document.querySelector('.typing-effect');
-    const phrases = ["Building Quality", "Preventing Bugs", "Automating Tests"];
-    let phraseIndex = 0; 
-    let charIndex = 0; 
-    let isDeleting = false;
+        // Typing Effect for Hero
+        const typingElement = document.querySelector('.typing-effect');
+        const phrases = ["Building Quality", "Preventing Bugs", "Automating Tests"];
+        let phraseIndex = 0; 
+        let charIndex = 0; 
+        let isDeleting = false;
 
-    function typeHero() {
-        const current = phrases[phraseIndex];
-        if(isDeleting) {
-            typingElement.textContent = current.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            typingElement.textContent = current.substring(0, charIndex + 1);
-            charIndex++;
+        function typeHero() {
+            const current = phrases[phraseIndex];
+            if(isDeleting) {
+                typingElement.textContent = current.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = current.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if(!isDeleting && charIndex === current.length) {
+                isDeleting = true;
+                setTimeout(typeHero, 2000);
+            } else if(isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                setTimeout(typeHero, 500);
+            } else {
+                setTimeout(typeHero, isDeleting ? 50 : 100);
+            }
         }
+        typeHero();
 
-        if(!isDeleting && charIndex === current.length) {
-            isDeleting = true;
-            setTimeout(typeHero, 2000);
-        } else if(isDeleting && charIndex === 0) {
-            isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-            setTimeout(typeHero, 500);
-        } else {
-            setTimeout(typeHero, isDeleting ? 50 : 100);
-        }
-    }
-    typeHero();
+        // Terminal Typing
+        const terminalBox = document.getElementById('terminal-box');
+        const lines = [
+            { text: "deepak@qa:~$ grep 'skills' profile.txt", type: 'cmd' },
+            { text: "Automation, Java, Selenium, CI/CD, Problem Solving", type: 'out' },
+            { text: "deepak@qa:~$ ./contact_me.sh", type: 'cmd' },
+            { text: "Initiating connection... Email: contact.deepakrana.work@gmail.com", type: 'out' },
+            { text: "deepak@qa:~$ ", type: 'cmd' }
+        ];
 
-    // Terminal Typing
-    const terminalBox = document.getElementById('terminal-box');
-    const lines = [
-        { text: "deepak@qa:~$ grep 'skills' profile.txt", type: 'cmd' },
-        { text: "Automation, Java, Selenium, CI/CD, Problem Solving", type: 'out' },
-        { text: "deepak@qa:~$ ./contact_me.sh", type: 'cmd' },
-        { text: "Initiating connection... Email: contact.deepakrana.work@gmail.com", type: 'out' },
-        { text: "deepak@qa:~$ ", type: 'cmd' }
-    ];
+        let lineIdx = 0;
+        let charIdx = 0;
+        let started = false;
 
-    let lineIdx = 0;
-    let charIdx = 0;
-    let started = false;
-
-    function typeTerminal() {
-        if (lineIdx >= lines.length) {
-            const cursor = document.createElement('span');
-            cursor.className = 'cursor-blink-terminal';
-            terminalBox.appendChild(cursor);
-            return;
-        }
-
-        const current = lines[lineIdx];
-        let div = terminalBox.children[lineIdx];
-        if (!div) {
-            div = document.createElement('div');
-            div.style.marginBottom = '0.5rem';
-            terminalBox.appendChild(div);
-        }
-
-        if (current.type === 'cmd') {
-            const promptHtml = '<span class="path">deepak@qa</span>:<span class="path">~</span>$ ';
-            const textToType = current.text.replace("deepak@qa:~$ ", "");
-            
-            if (textToType === "") {
-                div.innerHTML = promptHtml;
-                lineIdx++;
-                setTimeout(typeTerminal, 500);
+        function typeTerminal() {
+            if (lineIdx >= lines.length) {
+                const cursor = document.createElement('span');
+                cursor.className = 'cursor-blink-terminal';
+                terminalBox.appendChild(cursor);
                 return;
             }
 
-            div.innerHTML = promptHtml + '<span class="cmd">' + textToType.substring(0, charIdx + 1) + '</span>';
-            charIdx++;
-
-            if (charIdx < textToType.length) {
-                setTimeout(typeTerminal, 50);
-            } else {
-                lineIdx++;
-                charIdx = 0;
-                setTimeout(typeTerminal, 300);
+            const current = lines[lineIdx];
+            let div = terminalBox.children[lineIdx];
+            if (!div) {
+                div = document.createElement('div');
+                div.style.marginBottom = '0.5rem';
+                terminalBox.appendChild(div);
             }
-        } else {
-            div.innerHTML = '<span class="output">' + current.text + '</span>';
-            lineIdx++;
-            setTimeout(typeTerminal, 150);
-        }
-    }
 
-    const obs = new IntersectionObserver((entries) => {
-        if(entries[0].isIntersecting && !started) {
-            started = true;
-            typeTerminal();
-        }
-    });
-    obs.observe(document.querySelector('.terminal'));
+            if (current.type === 'cmd') {
+                const promptHtml = '<span class="path">deepak@qa</span>:<span class="path">~</span>$ ';
+                const textToType = current.text.replace("deepak@qa:~$ ", "");
+                
+                if (textToType === "") {
+                    div.innerHTML = promptHtml;
+                    lineIdx++;
+                    setTimeout(typeTerminal, 500);
+                    return;
+                }
 
-    // Fade-in animations
-    const fadeObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                div.innerHTML = promptHtml + '<span class="cmd">' + textToType.substring(0, charIdx + 1) + '</span>';
+                charIdx++;
+
+                if (charIdx < textToType.length) {
+                    setTimeout(typeTerminal, 50);
+                } else {
+                    lineIdx++;
+                    charIdx = 0;
+                    setTimeout(typeTerminal, 300);
+                }
+            } else {
+                div.innerHTML = '<span class="output">' + current.text + '</span>';
+                lineIdx++;
+                setTimeout(typeTerminal, 150);
+            }
+        }
+
+        const obs = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting && !started) {
+                started = true;
+                typeTerminal();
             }
         });
-    }, { threshold: 0.1 });
+        obs.observe(document.querySelector('.terminal'));
 
-    document.querySelectorAll('.skill-orb, .project-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-        fadeObs.observe(el);
-    });
-</script>
+        // Fade-in animations
+        const fadeObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.skill-orb, .project-card, .phil-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            fadeObs.observe(el);
+        });
+    </script>
 </body>
 </html>
-</parameter>
